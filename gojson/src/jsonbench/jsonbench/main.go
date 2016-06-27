@@ -10,6 +10,8 @@ import (
 	"log"
 	"os"
 	"time"
+
+	"github.com/kevinburke/jsonbench/gojson/src/jsonbench"
 )
 
 func main() {
@@ -23,7 +25,7 @@ func main() {
 	}
 	dec := json.NewDecoder(file)
 	startTime := time.Now()
-	var j JSONBlob
+	var j jsonbench.JSONBlob
 	if err := dec.Decode(&j); err != nil && err != io.EOF {
 		log.Fatal(err)
 	}
